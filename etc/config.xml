@@ -33,7 +33,9 @@
         <routers>
             <adminhtml>
                 <args>
+                    <modules>
                     <qbcsv before="Mage_Adminhtml">CLT_QBCSV_Adminhtml</qbcsv>
+                    </modules>
                 </args>
             </adminhtml>
         </routers>
