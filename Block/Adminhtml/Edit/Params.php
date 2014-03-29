@@ -17,12 +17,12 @@ class CLT_QBCSV_Block_Adminhtml_Edit_Params extends Mage_Adminhtml_Block_Widget_
         'class' => 'save',
         ), -100);
 //
-//        $this->_formScripts[] = "
+        $this->_formScripts[] = "
 //
-//        function saveAndContinueEdit(){
-//        editForm.submit($('edit_form').action+'back/input/');
-//        }
-//        ";
+        function saveAndContinueEdit(){
+        editForm.submit($('edit_form').action+'back/input/');
+        }
+        ";
     }
 
     public function getHeaderText() {
