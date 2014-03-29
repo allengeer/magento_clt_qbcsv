@@ -13,6 +13,10 @@
                     <title>Idx</title>
                     <action>adminhtml/qbexport/index</action>
                 </qbexport2>
+                <qbexport3 module="qbcsv">
+                    <title>Idx2</title>
+                    <action>qbexport/adminhtml/qbexport/index</action>
+                </qbexport3>
             </children>
         </qbexportmenu>
     </menu>
