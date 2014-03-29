@@ -10,8 +10,8 @@
                     <action>qbexport/test/index</action>
                 </qbexport>
                 <qbexport2 module="qbcsv">
-                    <title>Idx</title>
-                    <action>adminhtml/qbexport/index</action>
+                    <title>Edit</title>
+                    <action>qbexport/test/edit</action>
                 </qbexport2>
                 <qbexport3 module="qbcsv">
                     <title>Idx2</title>
