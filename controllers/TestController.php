@@ -49,14 +49,16 @@ class CLT_QBCSV_TestController extends Mage_Adminhtml_Controller_Action
 
             foreach ($order->getAllItems() as $item) {
                 $product = Mage::getModel('catalog/product')->load($item->getProductId());
-                try {
+                if (!( is_object($order->getBillingAddress()) && is_object($order->getShippingAddress()))) {
                     fputcsv($fd, array($order->getId(), $order->getCreatedAt(), $order->getCustomerName(),  $item->sku,$item->getName(),$product->getDescription(), round($item->getQtyOrdered()),round($item->getOriginalPrice(), 2),
                                 round($item->getQtyOrdered()*$item->getOriginalPrice(), 2),
+
                                 $order->getBillingAddress()->getStreet1(),$order->getBillingAddress()->getStreet2(),$order->getBillingAddress()->getStreet3(),$order->getBillingAddress()->getStreet4(),$order->getBillingAddress()->getCity(), $order->getBillingAddress()->getRegion(),$order->getBillingAddress()->getPostcode(), $order->getBillingAddress()->getCountry(),
                                 $order->getShippingAddress()->getStreet1(),$order->getShippingAddress()->getStreet2(),$order->getShippingAddress()->getStreet3(),$order->getShippingAddress()->getStreet4(),$order->getShippingAddress()->getCity(), $order->getShippingAddress()->getRegion(),$order->getShippingAddress()->getPostcode(), $order->getShippingAddress()->getCountry(),
                                 $order->getPayment()->getMethodInstance()->getTitle()
                             ));
-                } catch (Exception $e) {
+                }
+                else {
                     fputcsv($fd, array($order->getId(), $order->getCreatedAt(), $order->getCustomerName(),  $item->sku,$item->getName(),$product->getDescription(), round($item->getQtyOrdered()),round($item->getOriginalPrice(), 2),
                             round($item->getQtyOrdered()*$item->getOriginalPrice(), 2)));
                 }
