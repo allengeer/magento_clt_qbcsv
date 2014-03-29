@@ -33,7 +33,7 @@
         <routers>
             <adminhtml>
                 <args>
-                    <qbcsv after="Mage_Adminhtml">CLT_QBCSV_Adminhtml</qbcsv>
+                    <qbcsv before="Mage_Adminhtml">CLT_QBCSV_Adminhtml</qbcsv>
                 </args>
             </adminhtml>
         </routers>
