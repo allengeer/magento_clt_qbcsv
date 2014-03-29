@@ -30,14 +30,23 @@
                 <!--</qbcsv>-->
             <!--</updates>-->
         <!--</layout>-->
+        <!--<routers>-->
+            <!--<adminhtml>-->
+                <!--<args>-->
+                    <!--<modules>-->
+                        <!--<qbcsv before="Mage_Adminhtml">CLT_QBCSV_Adminhtml</qbcsv>-->
+                    <!--</modules>-->
+                <!--</args>-->
+            <!--</adminhtml>-->
+        <!--</routers>-->
         <routers>
-            <adminhtml>
+            <qbcsv>
+                <use>admin</use>
                 <args>
-                    <modules>
-                        <qbcsv before="Mage_Adminhtml">CLT_QBCSV_Adminhtml</qbcsv>
-                    </modules>
+                    <modules>CLT_QBCSV_Adminhtml</modules>
+                    <frontName>qbexport</frontName>
                 </args>
-            </adminhtml>
+            </qbcsv>
         </routers>
     </admin>
     <adminhtml>
