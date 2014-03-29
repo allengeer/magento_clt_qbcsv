@@ -2,10 +2,10 @@
 
 <layout>
 
-    <adminhtml_qbcsv_input>
+    <adminhtml_qbexport_edit>
         <reference name="content">
-            <block type="qbcsv/adminhtml_qbcsv_input" name="qbcsv_input" />
+            <block type="qbcsv/adminhtml_edit_reportparams" name="adminhtml_edit_reportparams" />
         </reference>
-    </adminhtml_qbcsv_input>
+    </adminhtml_qbexport_edit>
 
 </layout>

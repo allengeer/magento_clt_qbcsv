@@ -1,6 +1,6 @@
 <?php
 
-class CLT_QBCSV_Block_Adminhtml_Qbcsv_Input_Form extends Mage_Adminhtml_Block_Widget_Form
+class CLT_QBCSV_Block_Adminhtml_Edit_Reportparams_Form extends Mage_Adminhtml_Block_Widget_Form
 {
     protected function _prepareForm()
     {

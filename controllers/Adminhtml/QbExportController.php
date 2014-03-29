@@ -6,7 +6,7 @@
  * Time: 7:56 AM
  */
 
-class CLT_QBCSV_IndexController extends Mage_Adminhtml_Controller_Action {
+class CLT_QBCSV_Adminhtml_QbExportController extends Mage_Adminhtml_Controller_Action {
 
     public function indexAction()
     {
@@ -15,12 +15,11 @@ class CLT_QBCSV_IndexController extends Mage_Adminhtml_Controller_Action {
         $this->loadLayout()->renderLayout();
     }
 
-    public function inputAction()
+    public function editAction()
     {
         $this->_setActiveMenu('qbexportmenu/qbexport');
         $this->loadLayout();
-        $this->getLayout()->getBlock('head')->setCanLoadExtJs(true);
-        $this->renderLayout();
+        $this->getResponse()->setBody($this->getLayout()->createBlock('qbcsv/adminhtml_edit_reportparams')->toHtml());
     }
     public function exportAction()
     {

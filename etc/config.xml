@@ -31,13 +31,11 @@
             </updates>
         </layout>
         <routers>
-            <qbcsv>
-                <use>admin</use>
+            <adminhtml>
                 <args>
-                    <module>CLT_QBCSV</module>
-                    <frontName>qbcsv</frontName>
+                    <qbcsv after="Mage_Adminhtml">CLT_QBCSV_Adminhtml</qbcsv>
                 </args>
-            </qbcsv>
+            </adminhtml>
         </routers>
     </admin>
     <adminhtml>
@@ -48,11 +46,31 @@
                 <children>
                     <qbexport module="qbcsv">
                         <title>Export Quickbooks CSV</title>
-                        <action>qbcsv/index/input</action>
+                        <action>adminhtml/qbexport/edit</action>
                     </qbexport>
                 </children>
             </qbexportmenu>
         </menu>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <qbcsv translate="title" module="qbcsv">
+                                            <title>Quickbooks Export</title>
+                                        </qbcsv>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+
         <!--<events>-->
             <!--<adminhtml_block_html_before>-->
                 <!--<observers>-->
