@@ -43,11 +43,11 @@
             <qbcsv>
                 <use>admin</use>
                 <args>
-                    <module>CLT_QBCSV</module>
+                    <module>CLT_QBCSV_Adminhtml</module>
                     <frontName>qbexport</frontName>
                 </args>
             </qbcsv>
-            
+
         </routers>
     </admin>
     <adminhtml>
