@@ -6,8 +6,8 @@
             <sort_order>1</sort_order>
             <children>
                 <qbexport module="qbcsv">
-                    <title>Export Quickbooks CSV</title>
-                    <action>adminhtml/qbexport/index</action>
+                    <title>Test</title>
+                    <action>qbexport/test/index</action>
                 </qbexport>
                 <qbexport2 module="qbcsv">
                     <title>Idx</title>
