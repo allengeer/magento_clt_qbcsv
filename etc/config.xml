@@ -34,7 +34,7 @@
                 <children>
                     <qbcsv_adminform translate="title" module="qbcsv">
                         <title>Export Quickbooks CSV</title>
-                        <action>qbcsv/index_index</action>
+                        <action>qbcsv/index/index</action>
                     </qbcsv_adminform>
                 </children>
             </catalog>
