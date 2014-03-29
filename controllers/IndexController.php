@@ -13,4 +13,9 @@ class CLT_QBCSV_IndexController extends Mage_Adminhtml_Controller_Action {
         $this->loadLayout()->renderLayout();
     }
 
+    public function exportAction()
+    {
+        $this->loadLayout();
+        $this->loadLayout()->renderLayout();
+    }
 }

@@ -36,7 +36,7 @@
                 <children>
                     <qbexport module="qbcsv">
                         <title>Export Quickbooks CSV</title>
-                        <action>qbcsv/index/index</action>
+                        <action>qbcsv/index/export</action>
                     </qbexport>
                 </children>
             </qbexportmenu>
