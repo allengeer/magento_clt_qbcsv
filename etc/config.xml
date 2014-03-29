@@ -34,29 +34,14 @@
             <adminhtml>
                 <args>
                     <modules>
-                        <qbcsv before="Mage_Adminhtml">CLT_QBCSV</qbcsv>
+                        <qbcsv before="Mage_Adminhtml">CLT_QBCSV_Adminhtml</qbcsv>
                     </modules>
                 </args>
             </adminhtml>
         </routers>
     </admin>
     <adminhtml>
-        <menu>
-            <qbexportmenu  module="qbcsv">
-                <title>Quick Books</title>
-                <sort_order>1</sort_order>
-                <children>
-                    <qbexport module="qbcsv">
-                        <title>Export Quickbooks CSV</title>
-                        <action>adminhtml/qbexport/edit</action>
-                    </qbexport>
-                    <qbexport2 module="qbcsv">
-                        <title>Idx</title>
-                        <action>adminhtml/qbexport/index</action>
-                    </qbexport2>
-                </children>
-            </qbexportmenu>
-        </menu>
+
         <acl>
             <resources>
                 <admin>
