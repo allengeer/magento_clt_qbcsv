@@ -1,0 +1,8 @@
+<config>
+    <modules>
+        <CLT_QBCSV>
+            <active>true</active>
+            <codePool>local</codePool>
+        </CLT_QBCSV>
+    </modules>
+</config>
