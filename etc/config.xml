@@ -23,13 +23,13 @@
         </helpers>
     </global>
     <admin>
-        <layout>
-            <updates>
-                <qbcsv>
-                    <file>qbcsv.xml</file>
-                </qbcsv>
-            </updates>
-        </layout>
+        <!--<layout>-->
+            <!--<updates>-->
+                <!--<qbcsv>-->
+                    <!--<file>qbcsv.xml</file>-->
+                <!--</qbcsv>-->
+            <!--</updates>-->
+        <!--</layout>-->
         <routers>
             <adminhtml>
                 <args>
@@ -48,6 +48,10 @@
                         <title>Export Quickbooks CSV</title>
                         <action>adminhtml/qbexport/edit</action>
                     </qbexport>
+                    <qbexport2 module="qbcsv">
+                        <title>Idx</title>
+                        <action>adminhtml/qbexport/index</action>
+                    </qbexport2>
                 </children>
             </qbexportmenu>
         </menu>

@@ -4,7 +4,7 @@
 
     <adminhtml_qbexport_edit>
         <reference name="content">
-            <block type="qbcsv/adminhtml_edit_reportparams" name="adminhtml_edit_reportparams" />
+            <block type="qbcsv/edit_reportparams" name="edit_reportparams" />
         </reference>
     </adminhtml_qbexport_edit>
 
