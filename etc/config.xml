@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <CLT_QBCSV>
+            <version>0.9</version>
+        </CLT_QBCSV>
+    </modules>
+    <global>
+        <models>
+            <qbcsv>
+                <class>CLT_QBCSV_Model</class>
+            </qbcsv>
+        </models>
+        <helpers>
+            <qbcsv>
+                <class>CLT_QBCSV_Helper</class>
+            </qbcsv>
+        </helpers>
+    </global>
+    <admin>
+        <routers>
+            <qbcsv>
+                <use>admin</use>
+                <args>
+                    <module>CLT_QBCSV</module>
+                    <frontName>qbcsv</frontName>
+                </args>
+            </qbcsv>
+        </routers>
+    </admin>
+    <adminhtml>
+        <menu>
+            <catalog>
+                <children>
+                    <qbcsv_adminform translate="title" module="qbcsv">
+                        <title>Export Quickbooks CSV</title>
+                        <action>qbcsv/index</action>
+                    </qbcsv_adminform>
+                </children>
+            </catalog>
+        </menu>
+        <!--<events>-->
+            <!--<adminhtml_block_html_before>-->
+                <!--<observers>-->
+                    <!--<option_in_custom_export>-->
+                        <!--<class>custom_export/Observer</class>-->
+                        <!--<method>includeOption</method>-->
+                    <!--</option_in_custom_export>-->
+                <!--</observers>-->
+            <!--</adminhtml_block_html_before>-->
+        <!--</events>-->
+
+        <!--<translate>-->
+            <!--<modules>-->
+                <!--<qualquer_id_unico_aqui>-->
+                    <!--<files>-->
+                        <!--<default>Lema21_CustomExport.csv</default>-->
+                    <!--</files>-->
+                <!--</qualquer_id_unico_aqui>-->
+            <!--</modules>-->
+        <!--</translate>-->
+    </adminhtml>
+</config>
