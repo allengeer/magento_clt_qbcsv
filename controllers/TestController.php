@@ -49,7 +49,7 @@ class CLT_QBCSV_TestController extends Mage_Adminhtml_Controller_Action
 
             foreach ($order->getAllItems() as $item) {
                 $product = Mage::getModel('catalog/product')->load($item->getProductId());
-                if (!( is_object($order->getBillingAddress()) && is_object($order->getShippingAddress()))) {
+                if (( is_object($order->getBillingAddress()) && is_object($order->getShippingAddress()))) {
                     fputcsv($fd, array($order->getId(), $order->getCreatedAt(), $order->getCustomerName(),  $item->sku,$item->getName(),$product->getDescription(), round($item->getQtyOrdered()),round($item->getOriginalPrice(), 2),
                                 round($item->getQtyOrdered()*$item->getOriginalPrice(), 2),
 

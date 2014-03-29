@@ -3,20 +3,12 @@
     <menu>
         <qbexportmenu  module="qbcsv">
             <title>Quick Books</title>
-            <sort_order>1</sort_order>
+            <sort_order>999</sort_order>
             <children>
-                <qbexport module="qbcsv">
-                    <title>Test</title>
-                    <action>qbexport/test/index</action>
-                </qbexport>
                 <qbexport2 module="qbcsv">
-                    <title>Edit</title>
+                    <title>Export Orders</title>
                     <action>qbexport/test/edit</action>
                 </qbexport2>
-                <qbexport3 module="qbcsv">
-                    <title>Idx2</title>
-                    <action>qbexport/adminhtml/qbexport/index</action>
-                </qbexport3>
             </children>
         </qbexportmenu>
     </menu>
