@@ -15,6 +15,13 @@ class CLT_QBCSV_IndexController extends Mage_Adminhtml_Controller_Action {
         $this->loadLayout()->renderLayout();
     }
 
+    public function inputAction()
+    {
+        $this->_setActiveMenu('qbexportmenu/qbexport');
+        $this->loadLayout();
+        $this->getLayout()->getBlock('head')->setCanLoadExtJs(true);
+        $this->renderLayout();
+    }
     public function exportAction()
     {
         $this->_setActiveMenu('qbexportmenu/qbexport');
