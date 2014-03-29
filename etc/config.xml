@@ -30,14 +30,16 @@
     </admin>
     <adminhtml>
         <menu>
-            <reports>
+            <qbexportmenu  module="qbcsv">
+                <title>Quick Books</title>
+                <sort_order>1</sort_order>
                 <children>
                     <qbexport module="qbcsv">
                         <title>Export Quickbooks CSV</title>
-                        <action>qbcsv/qbcsv/index</action>
+                        <action>qbcsv/index/index</action>
                     </qbexport>
                 </children>
-            </reports>
+            </qbexportmenu>
         </menu>
         <!--<events>-->
             <!--<adminhtml_block_html_before>-->
