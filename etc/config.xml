@@ -34,7 +34,7 @@
             <adminhtml>
                 <args>
                     <modules>
-                    <qbcsv before="Mage_Adminhtml">CLT_QBCSV_Adminhtml</qbcsv>
+                        <qbcsv before="Mage_Adminhtml">CLT_QBCSV</qbcsv>
                     </modules>
                 </args>
             </adminhtml>
