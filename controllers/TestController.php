@@ -38,7 +38,7 @@ class CLT_QBCSV_TestController extends Mage_Adminhtml_Controller_Action
             ->addAttributeToFilter('status', array('eq' => Mage_Sales_Model_Order::STATE_COMPLETE));
 
 
-        $headers = array('order_num','date', 'customer', 'sku', 'item','description', 'qty', 'price','total_price',
+        $headers = array('order_num','date', 'customer', 'sku', 'item','description', 'qty', 'price','total_price'
 //                        'bill_address1','bill_address2','bill_address3','bill_address4','bill_city','bill_state','bill_zip', 'bill_country',
 //                        'ship_address1','ship_address2','ship_address3','ship_address4','ship_city','ship_state','ship_zip', 'ship_country',
 //                        'payment_method'
@@ -50,7 +50,7 @@ class CLT_QBCSV_TestController extends Mage_Adminhtml_Controller_Action
             foreach ($order->getAllItems() as $item) {
                 $product = Mage::getModel('catalog/product')->load($item->getProductId());
                 fputcsv($fd, array($order->getId(), $order->getCreatedAt(), $order->getCustomerName(),  $item->sku,$item->getName(),$product->getDescription(), round($item->getQtyOrdered()),round($item->getOriginalPrice(), 2) ),
-                    round($item->getQtyOrdered()*$item->getOriginalPrice(), 2),
+                    round($item->getQtyOrdered()*$item->getOriginalPrice(), 2)
 //                    $order->getBillingAddress()->getStreet1(),$order->getBillingAddress()->getStreet2(),$order->getBillingAddress()->getStreet3(),$order->getBillingAddress()->getStreet4(),$order->getBillingAddress()->getCity(), $order->getBillingAddress()->getRegion(), $order->getBillingAddress()->getCountry(),
 //                    $order->getShippingAddress()->getStreet1(),$order->getShippingAddress()->getStreet2(),$order->getShippingAddress()->getStreet3(),$order->getShippingAddress()->getStreet4(),$order->getShippingAddress()->getCity(), $order->getShippingAddress()->getRegion(), $order->getShippingAddress()->getCountry(),
 //                    $order->getPayment()->getMethodInstance()->getTitle()
