@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<layout>
+
+    <adminhtml_qbcsv_input>
+        <reference name="content">
+            <block type="qbcsv/adminhtml_qbcsv_input" name="qbcsv_input" />
+        </reference>
+    </adminhtml_qbcsv_input>
+
+</layout>

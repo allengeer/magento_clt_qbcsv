@@ -11,6 +11,11 @@
                 <class>CLT_QBCSV_Model</class>
             </qbcsv>
         </models>
+        <blocks>
+            <qbcsv>
+                <class>CLT_QBCSV_Block</class>
+            </qbcsv>
+        </blocks>
         <helpers>
             <qbcsv>
                 <class>CLT_QBCSV_Helper</class>
@@ -18,6 +23,13 @@
         </helpers>
     </global>
     <admin>
+        <layout>
+            <updates>
+                <qbcsv>
+                    <file>qbcsv.xml</file>
+                </qbcsv>
+            </updates>
+        </layout>
         <routers>
             <qbcsv>
                 <use>admin</use>
