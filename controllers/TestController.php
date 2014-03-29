@@ -37,38 +37,28 @@ class CLT_QBCSV_TestController extends Mage_Adminhtml_Controller_Action
             ->addAttributeToFilter('created_at', array('from' => $fromDate, 'to' => $toDate))
             ->addAttributeToFilter('status', array('eq' => Mage_Sales_Model_Order::STATE_COMPLETE));
 
-//        $header = array('order_num','customer_name','txn_date',
-//            'bill_address1','bill_address2','bill_city','bill_state','bill_zip', 'bill_country',
-//            'ship_address1','ship_address2','ship_city','ship_state','ship_zip', 'ship_country',
-//            'payment_method','payment_ref_num','subtotal','ship_date','ship_method','sales_tax',
-//            'total');
 
-        $headers = array('order_num','date', 'customer', 'sku', 'item','description', 'qty', 'price');
+        $headers = array('order_num','date', 'customer', 'sku', 'item','description', 'qty', 'price','total_price',
+                        'bill_address1','bill_address2','bill_address3','bill_address4','bill_city','bill_state','bill_zip', 'bill_country',
+                        'ship_address1','ship_address2','ship_address3','ship_address4','ship_city','ship_state','ship_zip', 'ship_country',
+                        'payment_method');
         $fd = fopen('php://temp/maxmemory:1048576', 'w');
         fputcsv($fd, $headers);
-        $list = "";
         foreach ($orders as $order) {
 
-              $list .= "<h2>" . $order->getCreatedAt() . " - " . $order->getId() . " for " . $order->getCustomerName() . " - $" . $order->getGrandTotal() . "</h2><table>";
             foreach ($order->getAllItems() as $item) {
                 $product = Mage::getModel('catalog/product')->load($item->getProductId());
-                fputcsv($fd, array($order->getId(), $order->getCreatedAt(), $order->getCustomerName(),  $item->sku,$item->getName(),$product->getDescription(), round($item->getQtyOrdered()),round($item->getOriginalPrice(), 2) ));
-                $list .= "<tr><td style='width:30px'>" . round($item->getQtyOrdered()) . " </td><td style='width:100px'> " . $item->sku . "</td><td style='width: 500px'> " . $item->getName() . "</td><td style='width:100px'>$" . round($item->getOriginalPrice(), 2) . "</td><td style='width:100px'>" . round(($item->getQtyOrdered() * $item->getOriginalPrice()), 2) . "</td></tr>";
+                fputcsv($fd, array($order->getId(), $order->getCreatedAt(), $order->getCustomerName(),  $item->sku,$item->getName(),$product->getDescription(), round($item->getQtyOrdered()),round($item->getOriginalPrice(), 2) ),
+                    round($item->getQtyOrdered()*$item->getOriginalPrice(), 2), $order->getBillingAddress()->getStreet1(),$order->getBillingAddress()->getStreet2(),$order->getBillingAddress()->getStreet3(),$order->getBillingAddress()->getStreet4(),$order->getBillingAddress()->getCity(), $order->getBillingAddress()->getRegion(), $order->getBillingAddress()->getCountry(),
+                    $order->getShippingAddress()->getStreet1(),$order->getShippingAddress()->getStreet2(),$order->getShippingAddress()->getStreet3(),$order->getShippingAddress()->getStreet4(),$order->getShippingAddress()->getCity(), $order->getShippingAddress()->getRegion(), $order->getShippingAddress()->getCountry(),
+                    $order->getPayment()->getMethodInstance()->getTitle());
             }
-            $list .= "<tr><td>" . round($order->getTotalQtyOrdered()) . "</td><td colspan=3></td><td>" . round($order->getGrandTotal(), 2) . "</td></table><br/>";
         }
         rewind($fd);
         $csv = stream_get_contents($fd);
         fclose($fd);
 
-        $list .= "";
         $this->_prepareDownloadResponse('order.csv', $csv);
-//        $this->_addContent($this->getLayout()
-//            ->createBlock('core/text', 'example-block')
-//            ->setText('<h1>' . $post['startDate'] . ' - ' . $post['endDate'] . '</h1>' . $list));
-//
-//        $this->_addContent($this->getLayout()->createBlock('qbcsv/adminhtml_edit_params'));
-//        $this->renderLayout();
     }
 
     protected function _addContent(Mage_Core_Block_Abstract $block)
