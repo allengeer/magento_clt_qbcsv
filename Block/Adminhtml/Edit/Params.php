@@ -8,14 +8,14 @@ class CLT_QBCSV_Block_Adminhtml_Edit_Params extends Mage_Adminhtml_Block_Widget_
     public function __construct()
     {
         parent::__construct();
-//        $this->_blockGroup = 'qbcsv';
-//        $this->_controller = 'adminhtml_edit_params';
+        $this->_blockGroup = 'qbcsv';
+        $this->_controller = 'adminhtml_edit_params';
 //
-//        $this->_addButton('generate', array(
-//        'label' => Mage::helper('adminhtml')->__('Generate CSV'),
-//        'onclick' => 'saveAndContinueEdit()',
-//        'class' => 'save',
-//        ), -100);
+        $this->_addButton('generate', array(
+        'label' => Mage::helper('adminhtml')->__('Generate CSV'),
+        'onclick' => 'saveAndContinueEdit()',
+        'class' => 'save',
+        ), -100);
 //
 //        $this->_formScripts[] = "
 //

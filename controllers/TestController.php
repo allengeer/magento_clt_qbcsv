@@ -19,6 +19,6 @@ class CLT_QBCSV_TestController extends Mage_Adminhtml_Controller_Action {
 //        $this->_setActiveMenu('qbexportmenu/qbexport');
         $this->loadLayout();
         $this->getResponse()->setBody($this->getLayout()->createBlock('qbcsv/adminhtml_edit_params')->toHtml());
-//        $this->renderLayout();
+        $this->renderLayout();
     }
 }
