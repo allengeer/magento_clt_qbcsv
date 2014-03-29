@@ -48,9 +48,11 @@ class CLT_QBCSV_TestController extends Mage_Adminhtml_Controller_Action
         fputcsv($fd, $headers);
         $list = "";
         foreach ($orders as $order) {
+
               $list .= "<h2>" . $order->getCreatedAt() . " - " . $order->getId() . " for " . $order->getCustomerName() . " - $" . $order->getGrandTotal() . "</h2><table>";
             foreach ($order->getAllItems() as $item) {
-                fputcsv($fd, array($order->getId(), $order->getCreatedAt(), $order->getCustomerName(),  $item->sku,$item->getName(),$item->getProduct()->getDescription(), round($item->getQtyOrdered()),round($item->getOriginalPrice(), 2) ));
+                $product = Mage::getModel('catalog/product')->load($item->getProductId());
+                fputcsv($fd, array($order->getId(), $order->getCreatedAt(), $order->getCustomerName(),  $item->sku,$item->getName(),$product->getDescription(), round($item->getQtyOrdered()),round($item->getOriginalPrice(), 2) ));
                 $list .= "<tr><td style='width:30px'>" . round($item->getQtyOrdered()) . " </td><td style='width:100px'> " . $item->sku . "</td><td style='width: 500px'> " . $item->getName() . "</td><td style='width:100px'>$" . round($item->getOriginalPrice(), 2) . "</td><td style='width:100px'>" . round(($item->getQtyOrdered() * $item->getOriginalPrice()), 2) . "</td></tr>";
             }
             $list .= "<tr><td>" . round($order->getTotalQtyOrdered()) . "</td><td colspan=3></td><td>" . round($order->getGrandTotal(), 2) . "</td></table><br/>";
