@@ -43,7 +43,7 @@
             <qbcsv>
                 <use>admin</use>
                 <args>
-                    <modules>CLT_QBCSV_Adminhtml</modules>
+                    <modules>CLT_QBCSV</modules>
                     <frontName>qbexport</frontName>
                 </args>
             </qbcsv>
